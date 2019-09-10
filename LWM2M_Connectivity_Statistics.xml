@@ -4,31 +4,28 @@
 FILE INFORMATION
 
 OMA Permanent Document
-   File: OMA-SUP-XML_LWM2M_Connectivity_Statistics-V1_0_1-20170704-A
+   File: OMA-SUP-XML_LWM2M_Connectivity_Statistics-V1_0_4-20190617-A
    Type: xml
+   Date: 2019-Jun-17
 
 Public Reachable Information
    Path: http://www.openmobilealliance.org/tech/profiles
-   Name: LWM2M_Connectivity_Statistics-v1_0_1.xml
+   Name: LWM2M_Connectivity_Statistics-v1_0_4.xml
 
 NORMATIVE INFORMATION
 
   Information about this file can be found in the latest revision of
 
-    OMA-TS-LightweightM2M-V1_0_1
+  OMA-TS-LightweightM2M-V1_0_3
+  OMA-TS-LightweightM2M_Core-V1_1_1
 
   This is available at http://www.openmobilealliance.org/
 
-  Send comments to technical-comments@mail.openmobilealliance.org
+  Send comments to https://github.com/OpenMobileAlliance/OMA_LwM2M_for_Developers/issues
 
-CHANGE HISTORY
-
-08022017 Status changed to Approved by TP, TP Ref # OMA-TP-2017-0009-INP_LightweightM2M-V1_0_ERP_for_Final_Approval
-04072017 Status changed to Approved by TP, TP Ref # OMA-TP-2017-0029R01-INP_LightweightM2M_V1.0.1_ERP_for_Final_Approval_Notification
-	
 LEGAL DISCLAIMER
 
-  Copyright 2017 Open Mobile Alliance All rights reserved.
+  Copyright 2019 Open Mobile Alliance.
 
   Redistribution and use in source and binary forms, with or without
   modification, are permitted provided that the following conditions
@@ -58,15 +55,18 @@ LEGAL DISCLAIMER
 
   The above license is used as a license under copyright only.  Please
   reference the OMA IPR Policy for patent licensing terms:
-  http://www.openmobilealliance.org/ipr.html
+  https://www.omaspecworks.org/about/intellectual-property-rights/
+
 -->
 
-<LWM2M xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://openmobilealliance.org/tech/profiles/LWM2M.xsd">
+<LWM2M xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.openmobilealliance.org/tech/profiles/LWM2M.xsd">
 	<Object ObjectType="MODefinition">
 		<Name>Connectivity Statistics</Name>
 		<Description1><![CDATA[This LwM2M Objects enables client to collect statistical information and enables the LwM2M Server to retrieve these information, set the collection duration and reset the statistical parameters.]]></Description1>
       <ObjectID>7</ObjectID>
 		<ObjectURN>urn:oma:lwm2m:oma:7</ObjectURN>
+		<LWM2MVersion>1.0</LWM2MVersion>
+		<ObjectVersion>1.0</ObjectVersion>
 		<MultipleInstances>Single</MultipleInstances>
 		<Mandatory>Optional</Mandatory>
 		<Resources>
@@ -97,8 +97,8 @@ LEGAL DISCLAIMER
 				<Mandatory>Optional</Mandatory>
 				<Type>Integer</Type>
 				<RangeEnumeration></RangeEnumeration>
-				<Units>Kilo-Bytes</Units>
-				<Description><![CDATA[Indicate the total amount of IP data transmitted during the collection period.]]></Description>
+				<Units></Units>
+				<Description><![CDATA[Indicate the total amount of data (IP / non-IP) transmitted during the collection period expressed in kilobytes.]]></Description>
 			</Item>
 			<Item ID="3">
 				<Name>Rx Data</Name>
@@ -107,8 +107,8 @@ LEGAL DISCLAIMER
 				<Mandatory>Optional</Mandatory>
 				<Type>Integer</Type>
 				<RangeEnumeration></RangeEnumeration>
-				<Units>Kilo-Bytes</Units>
-				<Description><![CDATA[Indicate the total amount of IP data received during the collection period.]]></Description>
+				<Units></Units>
+				<Description><![CDATA[Indicate the total amount of data (IP / non-IP) received during the collection period expressed in kilobytes.]]></Description>
 			</Item>
 			<Item ID="4">
 				<Name>Max Message Size</Name>
@@ -117,7 +117,7 @@ LEGAL DISCLAIMER
 				<Mandatory>Optional</Mandatory>
 				<Type>Integer</Type>
 				<RangeEnumeration></RangeEnumeration>
-				<Units>Byte</Units>
+				<Units>B</Units>
 				<Description><![CDATA[The maximum IP message size that is used during the collection period.]]></Description>
 			</Item>
 			<Item ID="5">
@@ -127,7 +127,7 @@ LEGAL DISCLAIMER
 				<Mandatory>Optional</Mandatory>
 				<Type>Integer</Type>
 				<RangeEnumeration></RangeEnumeration>
-				<Units>Byte</Units>
+				<Units>B</Units>
 				<Description><![CDATA[The average IP message size that is used during the collection period.]]></Description>
 			</Item>
       <Item ID="6">
@@ -156,9 +156,10 @@ LEGAL DISCLAIMER
 				<Mandatory>Optional</Mandatory>
 				<Type>Integer</Type>
 				<RangeEnumeration></RangeEnumeration>
-				<Units>Seconds</Units>
+				<Units>s</Units>
 				<Description><![CDATA[The default collection period in seconds. The value 0 indicates that the collection period is not set.]]></Description>
 			</Item></Resources>
-		<Description2><![CDATA[Note: When reporting the Tx Data or Rx Data, the LwM2M Client reports the total KB transmitted/received over IP bearer(s), including all protocol header bytes up to and including the IP header. This does not include lower level retransmissions/optimizations (e.g. RAN, header compression) or SMS messages.]]></Description2>
+		<Description2><![CDATA[Note: When reporting the Tx Data or Rx Data, the LwM2M Client reports the total KB transmitted/received over IP bearer(s), including all protocol header bytes up to and including the IP header. This does not include lower level retransmissions/optimizations (e.g. RAN, header compression) or SMS messages.]]>
+		</Description2>
 	</Object>
 </LWM2M>
